@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todos</title>
+    <style>
+        .completed{text-decoration: line-through}
+    </style>
+</head>
+<body>
+    <h1><%=nickname %> Todos</h1>
+    <a href="/todo/edit">Add Todo</a>
+    <ul>
+        <% todos.forEach(function(todo){ %>
+            <li>
+                <span class="<%= (todo.completed)? 'completed' : '' %>" >
+                    <%=todo.txt %>
+                </span> 
+                <a href="todo/<%=todo.id %>">Details</a> | 
+                <a href="todo/edit/<%=todo.id %>">Edit</a> |
+                <a href="todo/delete/<%=todo.id %>">Delete</a>
+
+            </li>
+        <% }); %>
+
+        <% if (lastVisitedTodoId) { %>
+            <a href="todo/<%=lastVisitedTodoId %>">Back to Last Visited</a>
+        <% }; %>
+
+    </ul>
+</body>
+</html>

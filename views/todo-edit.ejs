@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Todo</title>
+</head>
+<body>
+    <h1><%=(todo.id)? 'Edit' : 'Add' %> Todo</h1>
+    <form action="/todo/save" method="post">
+        <input name="id" type="hidden" value="<%=todo.id %>" />
+        <input name="txt" type="text" placeholder="What to do" value="<%=todo.txt %>" />
+        <labe>
+            <input name="completed" value="true" type="checkbox" <%= (todo.completed)? 'checked' : '' %>  />
+            Done
+        </label>
+        <button type="submit">Save</button>
+
+    </form>
+</body>
+</html>
